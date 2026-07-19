@@ -1,0 +1,9 @@
+{
+  "schema_name": "backit.analysis-plan",
+  "schema_version": 1,
+  "plan_id": "test-score-associations-v1",
+  "question": "How are study hours and sleep associated with my test score?",
+  "operation": "spearman",
+  "predictors": ["study_hours", "sleep_hours"],
+  "outcome": "score"
+}

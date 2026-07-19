@@ -1,0 +1,92 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "better": {
+      "default": "higher",
+      "enum": [
+        "higher",
+        "lower"
+      ],
+      "title": "Better",
+      "type": "string"
+    },
+    "bins": {
+      "additionalProperties": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "title": "Bins",
+      "type": "object"
+    },
+    "columns": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Columns",
+      "type": "array"
+    },
+    "minimum_group_size": {
+      "default": 3,
+      "minimum": 1,
+      "title": "Minimum Group Size",
+      "type": "integer"
+    },
+    "operation": {
+      "enum": [
+        "descriptive",
+        "spearman",
+        "combinations"
+      ],
+      "title": "Operation",
+      "type": "string"
+    },
+    "outcome": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Outcome"
+    },
+    "plan_id": {
+      "title": "Plan Id",
+      "type": "string"
+    },
+    "predictors": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Predictors",
+      "type": "array"
+    },
+    "question": {
+      "title": "Question",
+      "type": "string"
+    },
+    "schema_name": {
+      "const": "backit.analysis-plan",
+      "title": "Schema Name",
+      "type": "string"
+    },
+    "schema_version": {
+      "minimum": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_name",
+    "schema_version",
+    "plan_id",
+    "question",
+    "operation"
+  ],
+  "title": "AnalysisPlan",
+  "type": "object"
+}

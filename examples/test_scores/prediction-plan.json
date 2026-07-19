@@ -1,0 +1,15 @@
+{
+  "schema_name": "backit.prediction-plan",
+  "schema_version": 1,
+  "plan_id": "test-score-prediction-v1",
+  "predictors": ["study_hours", "sleep_hours"],
+  "outcome": "score",
+  "predicted_at": "2026-07-19T20:01:00-04:00",
+  "data_cutoff": "2026-07-19T20:00:00-04:00",
+  "feature_available_columns": {
+    "study_hours": "observed_at",
+    "sleep_hours": "observed_at"
+  },
+  "outcome_available_column": "score_received_at",
+  "historical_cutoff_column": "observed_at"
+}

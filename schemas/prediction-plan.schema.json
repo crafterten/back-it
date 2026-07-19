@@ -1,0 +1,68 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "data_cutoff": {
+      "title": "Data Cutoff",
+      "type": "string"
+    },
+    "feature_available_columns": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Feature Available Columns",
+      "type": "object"
+    },
+    "historical_cutoff_column": {
+      "title": "Historical Cutoff Column",
+      "type": "string"
+    },
+    "outcome": {
+      "title": "Outcome",
+      "type": "string"
+    },
+    "outcome_available_column": {
+      "title": "Outcome Available Column",
+      "type": "string"
+    },
+    "plan_id": {
+      "title": "Plan Id",
+      "type": "string"
+    },
+    "predicted_at": {
+      "title": "Predicted At",
+      "type": "string"
+    },
+    "predictors": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Predictors",
+      "type": "array"
+    },
+    "schema_name": {
+      "const": "backit.prediction-plan",
+      "title": "Schema Name",
+      "type": "string"
+    },
+    "schema_version": {
+      "minimum": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_name",
+    "schema_version",
+    "plan_id",
+    "predictors",
+    "outcome",
+    "predicted_at",
+    "data_cutoff",
+    "feature_available_columns",
+    "outcome_available_column",
+    "historical_cutoff_column"
+  ],
+  "title": "PredictionPlan",
+  "type": "object"
+}

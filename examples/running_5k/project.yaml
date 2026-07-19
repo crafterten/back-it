@@ -1,0 +1,48 @@
+adapter:
+  name: running_5k
+  version: "1"
+canonical_workbook: source/project_data.xlsx
+columns:
+  - available_at:
+      same_as: observed_at
+    name: observed_at
+    required: true
+    semantic_type: datetime
+  - available_at:
+      same_as: observed_at
+    maximum: 24
+    minimum: 0
+    name: sleep_hours
+    required: true
+    semantic_type: number
+    unit: hours
+  - available_at:
+      same_as: observed_at
+    minimum: 0
+    name: weekly_mileage
+    required: true
+    semantic_type: distance
+    unit: miles
+  - available_at:
+      same_as: observed_at
+    minimum: 0
+    name: pace
+    required: true
+    semantic_type: pace
+    unit: seconds_per_mile
+goal: Find combinations associated with my fastest 5K.
+name: Running 5K
+outcome:
+  available_at:
+    column: observed_at
+  better: lower
+  column: five_k_time
+  minimum: 0
+  semantic_type: duration
+  unit: seconds
+project_id: running-5k
+schema_name: backit.project
+schema_version: 1
+sheet: Runs
+state: configured
+timezone: America/New_York

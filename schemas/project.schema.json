@@ -1,0 +1,275 @@
+{
+  "$defs": {
+    "AdapterConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ],
+      "title": "AdapterConfig",
+      "type": "object"
+    },
+    "AvailabilityRule": {
+      "additionalProperties": false,
+      "properties": {
+        "column": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Column"
+        },
+        "same_as": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Same As"
+        }
+      },
+      "title": "AvailabilityRule",
+      "type": "object"
+    },
+    "ColumnConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "$ref": "#/$defs/AvailabilityRule"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum"
+        },
+        "minimum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "required": {
+          "default": false,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "semantic_type": {
+          "enum": [
+            "number",
+            "integer",
+            "score",
+            "datetime",
+            "identifier",
+            "note",
+            "duration",
+            "distance",
+            "pace",
+            "percentage",
+            "boolean"
+          ],
+          "title": "Semantic Type",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        }
+      },
+      "required": [
+        "name",
+        "semantic_type",
+        "available_at"
+      ],
+      "title": "ColumnConfig",
+      "type": "object"
+    },
+    "OutcomeConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "$ref": "#/$defs/AvailabilityRule"
+        },
+        "better": {
+          "enum": [
+            "higher",
+            "lower"
+          ],
+          "title": "Better",
+          "type": "string"
+        },
+        "column": {
+          "title": "Column",
+          "type": "string"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum"
+        },
+        "minimum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum"
+        },
+        "semantic_type": {
+          "enum": [
+            "number",
+            "integer",
+            "score",
+            "duration",
+            "pace"
+          ],
+          "title": "Semantic Type",
+          "type": "string"
+        },
+        "unit": {
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "column",
+        "semantic_type",
+        "unit",
+        "better",
+        "available_at"
+      ],
+      "title": "OutcomeConfig",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "adapter": {
+      "$ref": "#/$defs/AdapterConfig"
+    },
+    "canonical_workbook": {
+      "title": "Canonical Workbook",
+      "type": "string"
+    },
+    "columns": {
+      "items": {
+        "$ref": "#/$defs/ColumnConfig"
+      },
+      "title": "Columns",
+      "type": "array"
+    },
+    "goal": {
+      "title": "Goal",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "outcome": {
+      "$ref": "#/$defs/OutcomeConfig"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "schema_name": {
+      "const": "backit.project",
+      "title": "Schema Name",
+      "type": "string"
+    },
+    "schema_version": {
+      "minimum": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "sheet": {
+      "title": "Sheet",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "unconfigured",
+        "inspected",
+        "configured",
+        "ingested"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "timezone": {
+      "title": "Timezone",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_name",
+    "schema_version",
+    "project_id",
+    "name",
+    "goal",
+    "state",
+    "canonical_workbook",
+    "sheet",
+    "timezone",
+    "columns",
+    "outcome",
+    "adapter"
+  ],
+  "title": "ProjectConfig",
+  "type": "object"
+}

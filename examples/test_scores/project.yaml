@@ -1,0 +1,47 @@
+adapter:
+  name: test_scores
+  version: "1"
+canonical_workbook: source/project_data.xlsx
+columns:
+  - available_at:
+      same_as: observed_at
+    name: observed_at
+    required: true
+    semantic_type: datetime
+  - available_at:
+      same_as: score_received_at
+    name: score_received_at
+    required: false
+    semantic_type: datetime
+  - available_at:
+      same_as: observed_at
+    minimum: 0
+    name: study_hours
+    required: true
+    semantic_type: number
+    unit: hours
+  - available_at:
+      same_as: observed_at
+    maximum: 24
+    minimum: 0
+    name: sleep_hours
+    required: true
+    semantic_type: number
+    unit: hours
+goal: Predict my next score from my own preparation history.
+name: Test Scores
+outcome:
+  available_at:
+    column: score_received_at
+  better: higher
+  column: score
+  maximum: 100
+  minimum: 0
+  semantic_type: score
+  unit: points
+project_id: test-scores
+schema_name: backit.project
+schema_version: 1
+sheet: Scores
+state: configured
+timezone: America/New_York

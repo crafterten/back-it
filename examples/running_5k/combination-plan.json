@@ -1,0 +1,15 @@
+{
+  "schema_name": "backit.analysis-plan",
+  "schema_version": 1,
+  "plan_id": "running-combinations-v1",
+  "question": "Which observed sleep and mileage combinations had my fastest 5K times?",
+  "operation": "combinations",
+  "predictors": ["sleep_hours", "weekly_mileage"],
+  "outcome": "five_k_time",
+  "bins": {
+    "sleep_hours": [0, 7, 8, 9, 24],
+    "weekly_mileage": [0, 15, 25, 35, 100]
+  },
+  "better": "lower",
+  "minimum_group_size": 3
+}

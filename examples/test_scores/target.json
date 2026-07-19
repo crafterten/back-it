@@ -1,0 +1,12 @@
+{
+  "target_event_id": "biology-exam-3",
+  "target_at": "2026-07-20T10:00:00-04:00",
+  "features": {
+    "study_hours": 8.5,
+    "sleep_hours": 7.75
+  },
+  "feature_available_at": {
+    "study_hours": "2026-07-19T20:00:00-04:00",
+    "sleep_hours": "2026-07-19T08:00:00-04:00"
+  }
+}
